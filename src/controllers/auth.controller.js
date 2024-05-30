@@ -19,7 +19,7 @@ const register = async (req, res) => {
     const jwt = generateToken(user._id);
     const option = {
       httpOnly: true,
-      secure: false,
+      secure: true,
       sameSite: "lax",
     };
     return res
@@ -48,7 +48,7 @@ const login = async (req, res) => {
 
     const option = {
         httpOnly: true,
-        secure: false,
+        secure: true,
         sameSite: "lax",
       };
     return res
@@ -86,7 +86,7 @@ const logout = async (req, res) => {
     );
     const option = {
         httpOnly: true,
-        secure: false,
+        secure: true,
         sameSite: "lax",
       };
     return res

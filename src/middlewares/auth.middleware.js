@@ -11,7 +11,7 @@ export const verifyJwt = asyncHandler(async(req,res,next)=>{
        
         if (!token) {
             throw new ApiError(
-                401,"Unauthorized request "
+                401,"Unauthorized request login to send message"
                
             )
         }
@@ -24,8 +24,7 @@ export const verifyJwt = asyncHandler(async(req,res,next)=>{
         req.user = user;
         next()
     } catch (error) {
-        // throw new ApiError(401, "Something went wrong while verifying token"); 
-        // throw new ApiError(401,error?.message || "Invalid Access Token")
+        
         console.error("Verifying jwt error:", error.message);
         return res
           .status(error.statusCode || 500)
