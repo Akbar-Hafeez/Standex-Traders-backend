@@ -5,7 +5,7 @@ import { ApiError } from "./utils/apiError.js"
 import { ApiResponse } from "./utils/ApiResponse.js"
 const app =express()
 app.use(cors({
-    origin:'http://localhost:3000',
+    origin:['http://localhost:3000','http://localhost:5000'],
     credentials:true
 }))
 app.use(express.json({limit:"16kb"}))
