@@ -19,8 +19,10 @@ const register = async (req, res) => {
     const jwt = generateToken(user._id);
     const option = {
       httpOnly: true,
-      secure: true,
+      secure: process.env.NODE_ENV,
       sameSite: "lax",
+      domain: 'standex-traders.onrender.com', 
+      path: '/'
     };
     return res
       .status(200)
@@ -47,10 +49,12 @@ const login = async (req, res) => {
     const jwt = generateToken(user._id);
 
     const option = {
-        httpOnly: true,
-        secure: true,
-        sameSite: "lax",
-      };
+      httpOnly: true,
+      secure: process.env.NODE_ENV,
+      sameSite: "lax",
+      domain: 'standex-traders.onrender.com', 
+      path: '/'
+    };
     return res
       .status(200)
       .cookie("Token", jwt, option)
@@ -85,10 +89,12 @@ const logout = async (req, res) => {
       }
     );
     const option = {
-        httpOnly: true,
-        secure: true,
-        sameSite: "lax",
-      };
+      httpOnly: true,
+      secure: process.env.NODE_ENV,
+      sameSite: "lax",
+      domain: 'standex-traders.onrender.com', 
+      path: '/'
+    };
     return res
       .status(200)
       .clearCookie("Token", option)
