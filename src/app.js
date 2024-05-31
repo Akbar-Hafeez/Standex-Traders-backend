@@ -5,11 +5,11 @@ import { ApiError } from "./utils/apiError.js"
 import { ApiResponse } from "./utils/ApiResponse.js"
 const app =express()
 app.use(cors({
-    origin:['http://localhost:3000','http://localhost:5000'],
+    origin:process.env.CORS_ORIGIN,
     credentials:true
 }))
-app.use(express.json({limit:"16kb"}))
-app.use(express.urlencoded({extended:true,limit:"16kb"}))
+app.use(express.json({limit:"36kb"}))
+app.use(express.urlencoded({extended:true,limit:"36kb"}))
 app.use(express.static("public"))
 app.use(cookieParser())
 // Error-handling middleware
