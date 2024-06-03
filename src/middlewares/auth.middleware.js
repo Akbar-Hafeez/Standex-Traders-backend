@@ -12,7 +12,7 @@ export const verifyJwt = asyncHandler(async(req,res,next)=>{
        
         if (!token) {
             throw new ApiError(
-                401,"Unauthorized request login to send message"
+                401,"Unauthorized request login to send message || Make sure to enable third party cookies in your browser setting"
                
             )
         }

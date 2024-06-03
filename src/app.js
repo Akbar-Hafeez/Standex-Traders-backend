@@ -5,7 +5,7 @@ import { ApiError } from "./utils/apiError.js"
 import { ApiResponse } from "./utils/ApiResponse.js"
 const app =express()
 app.use(cors({
-    origin:process.env.CORS_ORIGIN,
+    origin:['https://standex-traders-frontend.vercel.app','https://www.standextraders.com','https://standextraders.com'],
     credentials:true
 }))
 app.use(express.json({limit:"36kb"}))
